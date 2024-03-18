@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Empty Seats</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #9575C9;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 10px;
+        }
+
+        header input[type="text"] {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            margin: 0 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        header input[type="submit"] {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: none;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .center {
+             display: block;
+             margin-left: auto;
+             margin-right: auto;
+             width: 30%;
+        }
+
+         /* Style for the images */
+         .item img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+
+        body input[type="email"] {
+           padding: 8px 15px;
+           border-radius: 20px;
+           align-items: center;
+           border: #333;
+           margin: 0 10px;
+           width: 300px;
+           font-size: 16px;
+        }
+        
+        body input[type="submit"] {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: #333;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #555;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .item {
+            width: 400px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #104AA0;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 8px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>No Empty Seats</h1>
+        <form action="#" method="get">
+            <input type="text" name="search" placeholder="Search items...">
+            <input type="submit" value="Search">
+        </form>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Donate and Support</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section><img src="images/image.webp" class="center"></section>
+    <div class="container">
+        <div>
+            <label for="sort">Sort By:</label>
+            <select id="sort" onchange="sortProducts()">
+                <option value="alphabetical">Alphabetical</option>
+                <option value="cost">Cost</option> 
+            </select>
+        </div>
+            
+        <div class="item">
+            <img src="images/bracelets.webp" alt="Item">
+            <h2>Item Name</h2>
+            <p>Price</p>
+            <button>Buy Item</button>
+        </div>
+        
+        <div class="item">
+            <img src="images/purpneck.webp" alt="Item">
+            <h2>No Empty Seats Crewneck</h2>
+            <p>$35.00</p>
+            <button>Buy Item</button>
+        </div>
+
+        <div class="item">
+            <img src="images/purpneck.webp" alt="Item">
+            <h2>No Empty Seats Crewneck</h2>
+            <p>$35.00</p>
+            <button>Buy Item</button>
+        </div>
+
+        <div class="item">
+            <img src="images/purpneck.webp" alt="Item">
+            <h2>No Empty Seats Crewneck</h2>
+            <p>$35.00</p>
+            <button>Buy Item</button>
+        </div>
+
+        <div class="item">
+            <img src="images/purpneck.webp" alt="Item">
+            <h2>No Empty Seats Crewneck</h2>
+            <p>$35.00</p>
+            <button>Buy Item</button>
+        </div>
+
+        <div class="item">
+            <img src="images/purpneck.webp" alt="Item">
+            <h2>No Empty Seats Crewneck</h2>
+            <p>$35.00</p>
+            <button>Buy Item</button>
+        </div>
+    </div>
+       
+    <footer>
+        <h1> NEWSLETTER </h1>
+        <h1>
+            The Mission of No Empty Seats, Inc. is to break the stigma behind mental illness and encourage showing unconditional 
+            love to friends and family. We invest in nationally-recognized suicide prevention charities and share stories revealing
+            the unspoken prevalence of depression and anxiety. Our goal is to emphasize the tragic effects of suicide, with partnered
+            initiatives and projects spreading genuine compassion and acts of kindness.</h1>
+        <form action="#" method="post">
+            <input type="email" name="email" placeholder="Enter your email address"> 
+        <p>&copy; 2024 No Empty Seats. All rights reserved.</p>
+    </footer>
+
+    <script>
+    function sortProducts() {
+        var sortSelect = document.getElementById("sort");
+        var selectedOption = sortSelect.options[sortSelect.selectedIndex].value;
+        var container = document.querySelector(".container");
+        var items = Array.from(document.querySelectorAll(".item"));
+
+        if (selectedOption === "alphabetical") {
+            items.sort(function(a, b) {
+                var titleA = a.querySelector("h2").textContent.toLowerCase();
+                var titleB = b.querySelector("h2").textContent.toLowerCase();
+                return titleA.localeCompare(titleB);
+            });
+        } else if (selectedOption === "cost") {
+            items.sort(function(a, b) {
+                var costA = parseFloat(a.querySelector(".cost").textContent.replace("$", ""));
+                var costB = parseFloat(b.querySelector(".cost").textContent.replace("$", ""));
+                return costA - costB;
+            });
+        }
+        container.innerHTML = "";
+        items.forEach(function(item) {
+            container.appendChild(item);
+        });
+    }
+    </script>
+</body>
+</html>
